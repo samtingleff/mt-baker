@@ -9,8 +9,9 @@ import com.mtbaker.client.provider.AbstractConfiguration;
 
 public class PropertiesConfiguration extends AbstractConfiguration implements Configuration {
 	private Properties props;
+
 	public PropertiesConfiguration(Properties props) {
-		super(new NullCache(), null, null);
+		super(new NullCache(), null, "ignored");
 		this.props = props;
 	}
 

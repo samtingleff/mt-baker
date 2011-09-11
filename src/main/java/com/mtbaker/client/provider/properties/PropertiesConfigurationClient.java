@@ -14,7 +14,7 @@ public class PropertiesConfigurationClient implements ConfigurationClient {
 	}
 
 	@Override
-	public Configuration getConfiguration(String namespace, int ttlSeconds) {
+	public Configuration getConfiguration(String namespace, int ttlMillis) {
 		return new PropertiesConfiguration(this.properties);
 	}
 
