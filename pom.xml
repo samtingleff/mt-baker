@@ -49,40 +49,16 @@
     </pluginRepositories>
 
     <repositories>
-        <repository>
-            <id>revv-components-maven-rep</id>
-            <url>http://mvn.fanops.net/nexus/content/groups/public</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>revv-components-maven-snapshot-rep</id>
-            <url>http://mvn.fanops.net/nexus/content/groups/public-snapshots</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </repository>
     </repositories>
 
     <distributionManagement>
         <repository>
-            <id>revv-components-release</id>
-            <url>http://mvn.fanops.net/nexus/content/repositories/revv-components-release</url>
+            <id>samtingleff-repo</id>
+            <url>https://github.com/samtingleff/maven-repo/raw/master/releases</url>
         </repository>
         <snapshotRepository>
-            <id>revv-components-maven-snapshots</id>
-            <url>http://mvn.fanops.net/nexus/content/repositories/revv-components-snapshots</url>
-            <uniqueVersion>false</uniqueVersion>
+            <id>samtingleff-snapshot-repo</id>
+            <url>https://github.com/samtingleff/maven-repo/raw/master/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
