@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 import com.mtbaker.client.Configuration;
 
-public class BasicConfigurationTestCase extends TestCase {
+public abstract class BasicConfigurationTestCase extends TestCase {
 
 	protected Configuration conf;
 
