@@ -60,6 +60,13 @@
     <repositories>
     </repositories>
 
+    <!-- to push a new version:
+        mvn -DaltDeploymentRepository=snapshot-repo::default::file:/path/to/maven-repo/snapshots clean deploy
+        cd /path/to/maven-repo
+        git add *
+        git commit -m 'new release of mt-baker
+        git push origin master
+    -->
     <distributionManagement>
         <repository>
             <id>samtingleff-repo</id>
