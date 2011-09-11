@@ -26,6 +26,21 @@ public abstract class AbstractConfiguration implements Configuration {
 		this.namespace = namespace;
 	}
 
+	public AbstractConfiguration() {
+	}
+
+	public void setCache(Cache cache) {
+		this.cache = cache;
+	}
+
+	public void setErrorHandler(ErrorHandler errors) {
+		this.errors = errors;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+	}
+
 	public String getString(String key, String defaultValue) throws IOException {
 		String v = cache.get(namespace, key);
 		if (v == null) {
