@@ -12,11 +12,11 @@ import com.mtbaker.client.ErrorHandler;
 public abstract class AbstractConfiguration implements Configuration {
 	private static final String LIST_SPLIT = "[,\\s]+";
 
-	private Cache cache;
+	protected Cache cache;
 
-	private ErrorHandler errors;
+	protected ErrorHandler errors;
 
-	private String namespace;
+	protected String namespace;
 
 	protected abstract String get(String namespace, String key) throws IOException;
 
