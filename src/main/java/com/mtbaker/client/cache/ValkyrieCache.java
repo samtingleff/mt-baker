@@ -2,12 +2,17 @@ package com.mtbaker.client.cache;
 
 import java.io.IOException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.mtbaker.client.Cache;
 import com.othersonline.kv.KeyValueStore;
 import com.othersonline.kv.KeyValueStoreException;
 import com.othersonline.kv.transcoder.Transcoder;
 
 public class ValkyrieCache implements Cache {
+	private static Log log = LogFactory.getLog(ValkyrieCache.class);
+
 	private KeyValueStore kv;
 
 	private Transcoder transcoder;
@@ -38,6 +43,7 @@ public class ValkyrieCache implements Cache {
 			return (T) ((transcoder == null) ? kv.get(key) : kv.get(key,
 					transcoder));
 		} catch (KeyValueStoreException e) {
+			log.error("Error calling kv.get()", e);
 			throw new IOException(e);
 		}
 	}
@@ -51,6 +57,7 @@ public class ValkyrieCache implements Cache {
 			else
 				kv.set(key, value, transcoder);
 		} catch (KeyValueStoreException e) {
+			log.error("Error calling kv.set()", e);
 			throw new IOException(e);
 		}
 	}
