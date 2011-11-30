@@ -7,6 +7,8 @@ public interface Configuration {
 
 	public String getString(String key, String defaultValue) throws IOException;
 
+	public boolean getBoolean(String key, boolean defaultValue) throws IOException;
+
 	public int getInteger(String key, int defaultValue) throws IOException;
 
 	public long getLong(String key, long defaultValue) throws IOException;

@@ -23,6 +23,13 @@ public abstract class BasicConfigurationTestCase extends TestCase {
 		assertNull(conf.getString("test.string.foo.null", null));
 	}
 
+	public void testBooleanValues() throws Exception {
+		// key with a value set should override the provided default
+		assertEquals(conf.getBoolean("test.boolean", false), true);
+		// key with no value set should return the default
+		assertEquals(conf.getBoolean("test.boolean.foo", true), true);
+	}
+
 	public void testIntegerValues() throws Exception {
 		// key with a value set should override the provided default
 		assertEquals(conf.getInteger("test.integer", 102), 101);

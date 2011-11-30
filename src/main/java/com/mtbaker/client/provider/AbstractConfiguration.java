@@ -50,6 +50,15 @@ public abstract class AbstractConfiguration implements Configuration {
 		return (v == null) ? defaultValue : v;
 	}
 
+	public boolean getBoolean(String key, boolean defaultValue) throws IOException {
+		Boolean v = cache.get(namespace, key);
+		if (v == null) {
+			v = new Boolean(toBoolean(get(namespace, key), defaultValue));
+			cache.set(namespace, key, v);
+		}
+		return (v == null) ? defaultValue : v.booleanValue();
+	}
+
 	public int getInteger(String key, int defaultValue) throws IOException {
 		Integer v = cache.get(namespace, key);
 		if (v == null) {
@@ -111,6 +120,14 @@ public abstract class AbstractConfiguration implements Configuration {
 			cache.set(namespace, key, l);
 		}
 		return l;
+	}
+
+	protected boolean toBoolean(String s, boolean defaultValue) {
+		boolean b = defaultValue;
+		if (!isEmpty(s)) {
+			b = Boolean.parseBoolean(s);
+		}
+		return b;
 	}
 
 	protected int toInteger(String s, int defaultValue) {
