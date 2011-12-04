@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.rubicon.core</groupId>
+    <groupId>com.rubicon.oss</groupId>
     <artifactId>mt-baker</artifactId>
     <packaging>jar</packaging>
     <version>1.0.2</version>
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>com.rubicon.oss</groupId>
             <artifactId>valkyrie</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
