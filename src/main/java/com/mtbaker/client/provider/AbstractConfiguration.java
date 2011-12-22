@@ -18,8 +18,6 @@ public abstract class AbstractConfiguration implements Configuration {
 
 	protected String namespace;
 
-	protected abstract String get(String namespace, String key) throws IOException;
-
 	public AbstractConfiguration(Cache cache, ErrorHandler errorHandler, String namespace) {
 		this.cache = cache;
 		this.errors = errorHandler;
@@ -28,6 +26,8 @@ public abstract class AbstractConfiguration implements Configuration {
 
 	public AbstractConfiguration() {
 	}
+
+	protected abstract String get(String namespace, String key) throws IOException;
 
 	public void setCache(Cache cache) {
 		this.cache = cache;
