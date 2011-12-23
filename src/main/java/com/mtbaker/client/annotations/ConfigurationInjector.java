@@ -38,6 +38,7 @@ public class ConfigurationInjector {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void setField(Configuration conf, Object obj, Configurable c, ConfigurableField cf,
 			Field f, Class<?> type) {
 		try {
