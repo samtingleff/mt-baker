@@ -5,9 +5,9 @@ import java.util.Properties;
 
 import com.mtbaker.client.Configuration;
 import com.mtbaker.client.NullCache;
-import com.mtbaker.client.provider.AbstractConfiguration;
+import com.mtbaker.client.provider.SimpleConfiguration;
 
-public class PropertiesConfiguration extends AbstractConfiguration implements Configuration {
+public class PropertiesConfiguration extends SimpleConfiguration implements Configuration {
 	private Properties props;
 
 	public PropertiesConfiguration(Properties props) {

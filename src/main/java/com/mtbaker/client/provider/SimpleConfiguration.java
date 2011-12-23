@@ -9,7 +9,7 @@ import com.mtbaker.client.Cache;
 import com.mtbaker.client.Configuration;
 import com.mtbaker.client.ErrorHandler;
 
-public abstract class AbstractConfiguration implements Configuration {
+public abstract class SimpleConfiguration implements Configuration {
 	private static final String LIST_SPLIT = "[,\\s]+";
 
 	protected Cache cache;
@@ -18,13 +18,13 @@ public abstract class AbstractConfiguration implements Configuration {
 
 	protected String namespace;
 
-	public AbstractConfiguration(Cache cache, ErrorHandler errorHandler, String namespace) {
+	public SimpleConfiguration(Cache cache, ErrorHandler errorHandler, String namespace) {
 		this.cache = cache;
 		this.errors = errorHandler;
 		this.namespace = namespace;
 	}
 
-	public AbstractConfiguration() {
+	public SimpleConfiguration() {
 	}
 
 	protected abstract String get(String namespace, String key) throws IOException;

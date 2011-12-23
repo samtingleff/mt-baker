@@ -14,8 +14,7 @@ public class PropertiesConfigurationTestCase extends BasicConfigurationTestCase 
 				"/properties/test-properties.properties"));
 		PropertiesConfigurationClient client = new PropertiesConfigurationClient(
 				props);
-		conf = client.getConfiguration(null, 10);
-		super.conf = conf;
+		super.conf = client.getConfiguration(null, 10);
 	}
 
 }

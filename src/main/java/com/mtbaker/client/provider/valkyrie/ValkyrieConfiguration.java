@@ -6,13 +6,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.mtbaker.client.Configuration;
-import com.mtbaker.client.provider.AbstractConfiguration;
+import com.mtbaker.client.provider.SimpleConfiguration;
 import com.othersonline.kv.KeyValueStore;
 import com.othersonline.kv.KeyValueStoreException;
 import com.othersonline.kv.transcoder.StringTranscoder;
 import com.othersonline.kv.transcoder.Transcoder;
 
-public class ValkyrieConfiguration extends AbstractConfiguration implements Configuration {
+public class ValkyrieConfiguration extends SimpleConfiguration implements Configuration {
 	private static Log log = LogFactory.getLog(ValkyrieConfiguration.class);
 
 	private Transcoder transcoder = new StringTranscoder();

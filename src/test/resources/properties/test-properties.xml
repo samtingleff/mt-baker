@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+ <namespace name="test">
+  <property name="test.string">
+   <value>foo</value>
+  </property>
+  <property name="test.boolean">
+   <value>true</value>
+  </property>
+  <property name="test.integer">
+   <value>101</value>
+  </property>
+  <property name="test.long">
+   <value>2147483648</value>
+  </property>
+  <property name="test.double">
+   <value>2147483648.12345</value>
+  </property>
+  <property name="test.string.list">
+   <value>foo</value>
+   <value>bar</value>
+  </property>
+  <property name="test.integer.list">
+   <value>19</value>
+   <value>22</value>
+  </property>
+  <property name="test.long.list">
+   <value>2147483648</value>
+   <value>909</value>
+  </property>
+  <property name="test.double.list">
+   <value>107.7</value>
+   <value>94.5</value>
+  </property>
+ </namespace>
+</configuration>
