@@ -2,7 +2,6 @@ package com.mtbaker.client.annotations.test;
 
 import java.util.Arrays;
 
-import com.mtbaker.client.Configuration;
 import com.mtbaker.client.annotations.ConfigurationInjector;
 import com.mtbaker.client.provider.io.ResourceStreamSource;
 import com.mtbaker.client.provider.xml.XmlConfigurationClient;
@@ -15,11 +14,10 @@ public class ConfigurationInjectionTestCase extends TestCase {
 		XmlConfigurationClient client = new XmlConfigurationClient(
 				new ResourceStreamSource(getClass(),
 						"/properties/test-properties.xml"));
-		Configuration conf = client.getConfiguration("test", 10);
 
 		ConfigurationInjector injector = new ConfigurationInjector();
 		ConfigurableObject obj = new ConfigurableObject();
-		injector.inject(conf, obj);
+		injector.inject(client, obj);
 
 		// string types
 		assertEquals(obj.getSomeString(), "foo");

@@ -5,25 +5,28 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import com.mtbaker.client.Configuration;
+import com.mtbaker.client.ConfigurationClient;
 
 public class ConfigurationInjector {
 
-	public void inject(Configuration conf, Object obj) {
+	public void inject(ConfigurationClient client, Object obj) throws IOException {
 		Class<?> cls = obj.getClass();
 		Configurable c = cls.getAnnotation(Configurable.class);
 		if (c != null) {
+			String namespace = c.namespace();
+			Configuration conf = client.getConfiguration(namespace, 1000);
 			Field[] fields = cls.getDeclaredFields();
 			for (Field f : fields) {
 				ConfigurableField cf = f.getAnnotation(ConfigurableField.class);
 				if (cf != null) {
 					Class<?> type = f.getType();
-					setField(conf, obj, cf, f, type);
+					setField(conf, obj, c, cf, f, type);
 				}
 			}
 		}
 	}
 
-	private void setField(Configuration conf, Object obj, ConfigurableField cf,
+	private void setField(Configuration conf, Object obj, Configurable c, ConfigurableField cf,
 			Field f, Class<?> type) {
 		try {
 			f.setAccessible(true);

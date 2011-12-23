@@ -1,7 +1,6 @@
 package com.mtbaker.client.annotations.test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import com.mtbaker.client.annotations.Configurable;
