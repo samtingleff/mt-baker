@@ -8,8 +8,20 @@ import com.mtbaker.client.Configuration;
 import com.mtbaker.client.ConfigurationClient;
 
 public class ConfigurationInjector {
+	private ConfigurationClient client;
 
-	public void inject(ConfigurationClient client, Object obj) throws IOException {
+	public ConfigurationInjector(ConfigurationClient client) {
+		this.client = client;
+	}
+
+	public ConfigurationInjector() {
+	}
+
+	public void setConfigurationClient(ConfigurationClient client) {
+		this.client = client;
+	}
+
+	public void inject(Object obj) throws IOException {
 		Class<?> cls = obj.getClass();
 		Configurable c = cls.getAnnotation(Configurable.class);
 		if (c != null) {

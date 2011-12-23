@@ -15,9 +15,9 @@ public class ConfigurationInjectionTestCase extends TestCase {
 				new ResourceStreamSource(getClass(),
 						"/properties/test-properties.xml"));
 
-		ConfigurationInjector injector = new ConfigurationInjector();
+		ConfigurationInjector injector = new ConfigurationInjector(client);
 		ConfigurableObject obj = new ConfigurableObject();
-		injector.inject(client, obj);
+		injector.inject(obj);
 
 		// string types
 		assertEquals(obj.getSomeString(), "foo");
