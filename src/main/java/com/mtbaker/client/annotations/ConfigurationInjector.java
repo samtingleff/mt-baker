@@ -2,6 +2,7 @@ package com.mtbaker.client.annotations;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.List;
 
 import com.mtbaker.client.Configuration;
 
@@ -45,6 +46,28 @@ public class ConfigurationInjector {
 				f.set(obj, conf.getDouble(cf.value(), (Double) defaultValue));
 			else if (double.class.equals(type))
 				f.set(obj, conf.getDouble(cf.value(), (Double) defaultValue));
+			else if (List.class.equals(type)) {
+				// use the type() hint if present
+				Class<?> listType = cf.type();
+				if (listType != null) {
+					if (String.class.equals(listType))
+						f.set(obj, conf.getStringList(cf.value(),
+								(List<String>) defaultValue));
+					else if (Integer.class.equals(listType))
+						f.set(obj, conf.getIntegerList(cf.value(),
+								(List<Integer>) defaultValue));
+					else if (Long.class.equals(listType))
+						f.set(obj, conf.getLongList(cf.value(),
+								(List<Long>) defaultValue));
+					else if (Double.class.equals(listType))
+						f.set(obj, conf.getDoubleList(cf.value(),
+								(List<Double>) defaultValue));
+				} else {
+					// otherwise assume a string
+					f.set(obj, conf.getStringList(cf.value(),
+							(List<String>) defaultValue));
+				}
+			}
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {

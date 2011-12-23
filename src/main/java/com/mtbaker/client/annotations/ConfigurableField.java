@@ -11,5 +11,5 @@ public @interface ConfigurableField {
 
 	public String value();
 
-	public String defaultValue = "";
+	public Class<?> type() default String.class;
 }
