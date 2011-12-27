@@ -23,17 +23,23 @@ public class ConfigurationInjector {
 
 	public void inject(Object obj) throws IOException {
 		Class<?> cls = obj.getClass();
+		String namespace = null;
 		Configurable c = cls.getAnnotation(Configurable.class);
-		if (c != null) {
-			String namespace = c.value();
-			Configuration conf = client.getConfiguration(namespace, 1000);
-			Field[] fields = cls.getDeclaredFields();
-			for (Field f : fields) {
-				ConfigurableField cf = f.getAnnotation(ConfigurableField.class);
-				if (cf != null) {
-					Class<?> type = f.getType();
-					setField(conf, obj, c, cf, f, type);
-				}
+		if (c != null)
+			namespace = c.value();
+		inject(obj, namespace);
+	}
+
+	public void inject(Object obj, String namespace) throws IOException {
+		Class<?> cls = obj.getClass();
+		Configurable c = cls.getAnnotation(Configurable.class);
+		Configuration conf = client.getConfiguration(namespace, 1000);
+		Field[] fields = cls.getDeclaredFields();
+		for (Field f : fields) {
+			ConfigurableField cf = f.getAnnotation(ConfigurableField.class);
+			if (cf != null) {
+				Class<?> type = f.getType();
+				setField(conf, obj, c, cf, f, type);
 			}
 		}
 	}
