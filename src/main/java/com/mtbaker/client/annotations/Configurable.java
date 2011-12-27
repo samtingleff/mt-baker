@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Configurable {
 
-	public String namespace();
+	public String value();
 }

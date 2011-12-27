@@ -6,7 +6,7 @@ import java.util.List;
 import com.mtbaker.client.annotations.Configurable;
 import com.mtbaker.client.annotations.ConfigurableField;
 
-@Configurable(namespace = "test")
+@Configurable("test")
 public class ConfigurableObject {
 
 	@ConfigurableField("test.string")

@@ -25,7 +25,7 @@ public class ConfigurationInjector {
 		Class<?> cls = obj.getClass();
 		Configurable c = cls.getAnnotation(Configurable.class);
 		if (c != null) {
-			String namespace = c.namespace();
+			String namespace = c.value();
 			Configuration conf = client.getConfiguration(namespace, 1000);
 			Field[] fields = cls.getDeclaredFields();
 			for (Field f : fields) {
