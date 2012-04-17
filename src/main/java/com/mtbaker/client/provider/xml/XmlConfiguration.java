@@ -128,7 +128,7 @@ public class XmlConfiguration implements Configuration {
 			this.configs = ct;
 			this.lastReadTime = System.currentTimeMillis();
 		} catch (JAXBException e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		} finally {
 			if (is != null)
 				try {
